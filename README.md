@@ -5,22 +5,22 @@ This is the repository for code related to 'Manifold Denoising by Nolinear Robus
 ***
 
 ### Overview
-We extent robust principal component an alysis to nolinear manifolds, where we assume that the data matrix contains a sparse component and a component drawn from some low dimensional manifold. We aim at separating both components from noisy data by proposing an optimization framework.
+We extent robust principal component analysis to nolinear manifolds, where we assume that the data matrix contains a sparse component and a component drawn from some low dimensional manifold. We aim at separating both components from noisy data by proposing an optimization framework.
 
 ***
 
 ### Descriptions
-**data**: Contains data for simulated numerical tests
+**data**: contains data for numerical simulation
 
-**dependencies**: Contains some other codes necessary for implementation
+**dependencies**: contains other pacakges used in the implementation
 
-**result**: Contains figures for 2 examples
+**result**: contains results for the two examples in the paper
 
-**src**: Contains source codes for NRPCA
+**src**: contains source codes for NRPCA
 
 **Example_MNIST.m**: Code for MNIST digits 4&9 classification using NRPCA
 
-**Example_SwissRoll.m**: Code for 20dim SwissRoll dataset using NRPCA
+**Example_SwissRoll.m**: Code for 20 dimenssional SwissRoll dataset using NRPCA
 
 **setup.m**: add paths to run examples.
 
