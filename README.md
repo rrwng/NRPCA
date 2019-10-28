@@ -5,7 +5,7 @@ This is the repository for code related to 'Manifold Denoising by Nolinear Robus
 ***
 
 ### Overview
-We extent robust principal component analysis to nolinear manifolds, where we assume that the data matrix contains a sparse component and a component drawn from some low dimensional manifold. We aim at separating both components from noisy data by proposing an optimization framework.
+We extend robust principal component analysis to nolinear manifolds, where we assume that the data matrix contains a sparse component and a component drawn from some low dimensional manifold. We aim at separating both components from noisy data by proposing an optimization framework.
 
 ***
 
