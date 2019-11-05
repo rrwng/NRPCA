@@ -2,7 +2,7 @@ function L = NRPCA_func(patch, data, lambda, no_copies, niter)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The function NRPCA_func computes the denoised result 'L' of the
 % original data matrix by solving the optimization problem:
-%   S = argmin sum_1^n (lambda_i * || X^i - L^i - S^i ||_F^2) + mu * || S ||_1)
+%   S = argmin sum_{i=1}^n (lambda_i * || X^i - L^i - S^i ||_F^2) + ||C(L^i)||_* + mu * || S^i ||_1)
 %
 % L = NRPCA_func(patch, data, lambda, no_copies, niter)
 % Input:
