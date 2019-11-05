@@ -13,7 +13,7 @@ noise_level = 0.5;    % noise level
 sparse_noise_level = 5;    % sparse noise level
 [clean_data, noisy_data, cmap] = gen_SwissRoll(N, P, noise_level, sparse_noise_level);
 K = 21;     % number of neighbors (including data itself)
-num_run = 5; % maximum rounds
+num_run = 5; % maximum rounds (T)
 niter = 150; % maximum iterations per round 
 
 %% Running NRPCA
