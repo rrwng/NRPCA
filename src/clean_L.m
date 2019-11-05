@@ -2,7 +2,7 @@ function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level, curv)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Function denoised_L computes the final estimation clean data matrix,
 % by removing gaussian noise. Following eq.(13)&(15):
-%   L = (sum_1^n lambda_i * P^i * P^i')^{-1}*(sum_1^n lambda_i * P^i' * L^i)
+%   L = (sum_{i=1}^n lambda_i * P^i * P^i')^{-1}*(sum_1^n lambda_i * P^i' * L^i)
 %
 % clean_L = clean_data(N, K, orig_data, L2, P, lambda)
 % Input:
@@ -10,12 +10,12 @@ function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level, curv)
 %   K: number of neighbors (including data itself)
 %   patch: indexes of neighborhoods matrix, with dimension N * (K+1)
 %   orig_data: original data matrix
-%   L2: estimated local data matrix
+%   L2: estimated data matrix obtained by NRPCA with T=2
 %   P: original dimensionality of data
 %   lambda: regularizing parameter before F-norm in objective function
-%   no_copies: weights to compute regularizing parameter mu
+%   no_copies: a vector that counts the number of local patches the i-th point belongs to  
 % Output:
-%   clean_L: final estimation of clean data matrix
+%   clean_L: final estimation \hat X of clean data matrix
 %
 % Author: He Lyu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
