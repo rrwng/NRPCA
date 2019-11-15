@@ -12,7 +12,7 @@ N = 2000;   % number of samples in total
 K = 6;     % number of neighbors (including data itself)
 P = size(orig_data,2);  % original data dimension
 num_run = 5; % maximum rounds
-niter = 50; % maximum iterations per round 
+niter = 150; % maximum iterations per round 
 
 %% Running NRPCA multiple rounds
 C = run_NRPCA(orig_data, K, num_run, niter, 0);
