@@ -12,12 +12,15 @@ N = 2000;   % number of samples in total
 K = 6;     % number of neighbors (including data itself)
 P = size(orig_data,2);  % original data dimension
 num_run = 5; % maximum rounds
-niter = 150; % maximum iterations per round 
+niter = 50; % maximum iterations per round 
 
 %% Running NRPCA multiple rounds
-curv = curvature(orig_data);
-[L1,L2,L3,L4,L5,lambda1,lambda2] = run_NRPCA(orig_data, K, num_run, niter, 0, curv);
-
+C = run_NRPCA(orig_data, K, num_run, niter, 0);
+L1 = cell2mat(C(1));
+L2 = cell2mat(C(2));
+L3 = cell2mat(C(3));
+L4 = cell2mat(C(4));
+L5 = cell2mat(C(5));
 %% Image Denoising Results (Comparison between diffenrent rounds)
 perm = randperm(N,54);
 figure()
@@ -93,3 +96,12 @@ subplot(2,2,2), display_network(L2(perm4,:)');title('Denoised images for digit 4
 perm9 = N/2 + randperm(N/2,45); 
 subplot(2,2,3), display_network(orig_data(perm9,:)');title('Original images for digit 9','fontsize',28);
 subplot(2,2,4), display_network(L2(perm9,:)');title('Denoised images for digit 9','fontsize',28);
+%% Image Denoising Results for T = 1 : 5
+perm1 = perm(1:54);
+figure()
+subplot(2,3,1), display_network(orig_data(perm1,:)');title('Original images','fontsize',15);
+subplot(2,3,2), display_network(L1(perm1,:)');title('Denoised images with T=1','fontsize',15);
+subplot(2,3,3), display_network(L2(perm1,:)');title('Denoised images with T=2','fontsize',15);
+subplot(2,3,4), display_network(L3(perm1,:)');title('Denoised images with T=3','fontsize',15);
+subplot(2,3,5), display_network(L4(perm1,:)');title('Denoised images with T=4','fontsize',15);
+subplot(2,3,6), display_network(L5(perm1,:)');title('Denoised images with T=5','fontsize',15);

@@ -10,22 +10,23 @@ setup
 N = 2000;   % total number of samples
 P = 3;     % dimension of swiss roll
 noise_level = 0.5;    % noise level
-sparse_noise_level = 5;    % sparse noise level
+sparse_noise_level = 2;    % sparse noise level
 [clean_data, noisy_data, cmap] = gen_SwissRoll(N, P, noise_level, sparse_noise_level);
 K = 21;     % number of neighbors (including data itself)
-num_run = 5; % maximum rounds (T)
+num_run = 2; % maximum rounds (T)
 niter = 150; % maximum iterations per round 
 
 %% Running NRPCA
-curv = curvature(noisy_data);
 % multiple round sparse noise removing with neighbors updated
-[L1,L2,L3,L4,L5,lambda1,lambda2] = run_NRPCA(noisy_data, K, num_run, niter, noise_level, curv);
+C = run_NRPCA(noisy_data, K, num_run, niter, noise_level);
+L1 = cell2mat(C(1));
+L2 = cell2mat(C(2));
 % gaussian noise removing with neighbors updated
-curv = curvature(L2);
-[L_clean,lambda3] = clean_L(N, K, noisy_data, L2, P, noise_level, curv);
+
+[L_clean,lambda3] = clean_L(N, K, noisy_data, L2, P, noise_level);
 
 %% Patchwise Robust PCA
-L_patch = patch_RPCA(noisy_data, K, noise_level, curv);
+L_patch = patch_RPCA(noisy_data, K, noise_level);
 
 %% Visualizing Results using first 3 dimensions
 figure()
@@ -43,7 +44,7 @@ subplot(2,3,6), scatter3(clean_data(:,1), clean_data(:,2), clean_data(:,3), 10, 
 title('Clean data:$X$','Interpreter', 'latex','Fontsize',20);
 
 %% Embedding via LLE and Laplacian Eigenmap
-M=15;
+M=10;
 mapped_clean_lle = compute_mapping(clean_data(:,1:3),'LLE',2,M);
 mapped_L1_lle = compute_mapping(L1(:,1:3),'LLE',2,M);
 mapped_L2_lle = compute_mapping(L2(:,1:3),'LLE',2,M);

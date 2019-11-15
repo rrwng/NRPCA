@@ -1,4 +1,4 @@
-function [L1,L2,L3,L4,L5,lambda1,lambda2] = run_NRPCA(X, K, num_run, niter, gauss_noise_level, curv)
+function C = run_NRPCA(X, K, num_run, niter, gauss_noise_level)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Function run_NRPCA runs the proposed NRPCA method on orig_data for
 % num_run times, and output the estimation of denoised data matrix.
@@ -21,6 +21,8 @@ function [L1,L2,L3,L4,L5,lambda1,lambda2] = run_NRPCA(X, K, num_run, niter, gaus
 
 N = size(X,1);
 L_temp = X;
+L = [];
+curv = curvature(X);
 
 for i = 1:num_run
     fprintf('------------------------------\n')
@@ -29,21 +31,8 @@ for i = 1:num_run
     %curv = curvature(L_temp);
     lambda = compute_weight(X ,curv, patch, A, gauss_noise_level);
     L_temp = NRPCA_func(patch, X', lambda, no_copies, niter);
-
-    if i == 1
-        L1 = L_temp;
-        lambda1 = lambda;
-    elseif i == 2
-        L2 = L_temp;
-        lambda2 = lambda;
-    elseif i == 3
-        L3 = L_temp;
-    elseif i == 4
-        L4 = L_temp;
-    elseif i == 5
-        L5 = L_temp;
-        lambda2 = lambda;
-    end
+    L = [L',L_temp']';
 end
 
+C = mat2cell(L,repmat(N,1,num_run));
 end

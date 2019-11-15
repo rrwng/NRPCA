@@ -1,4 +1,4 @@
-function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level, curv)
+function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Function denoised_L computes the final estimation clean data matrix,
 % by removing gaussian noise. Following eq.(13)&(15):
@@ -23,6 +23,7 @@ function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level, curv)
 fprintf('-------------------------------\n')
 fprintf('Estimating clean data matrix...\n')
 
+curv = curvature(L2);
 [patch, no_copies, A] = update_patch(L2, N, K);
 lambda = compute_weight(L2,curv, patch, A, noise_level);
 GB1 = zeros(N, N * K);

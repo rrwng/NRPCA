@@ -1,4 +1,4 @@
-function L_patch = patch_RPCA(X, K, noise_level, curv)
+function L_patch = patch_RPCA(X, K, noise_level)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Function L_patch estimates the clean data matrix as L_patch via
 % patch-wise robust PCA.
@@ -18,6 +18,7 @@ fprintf('Start solving patchwise RPCA...\n')
 
 global mu lambda
 
+curv = curvature(X);
 [N, P] = size(X);
 [patch, ~, A] = update_patch(X, N, K);
 lambda = compute_weight(X,curv, patch, A, noise_level);
