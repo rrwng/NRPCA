@@ -1,21 +1,15 @@
 function [patch, no_copies, A] = update_patch(L, N, K)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function update_patch updates nearest neighbors, distance matrices based
-% on current estimated data matrix with sparse noise removal. We can use
-% the new patches to run proposed NRPCA using updated patch information.
-%
-% [patch, no_copies, A, D, d] = update_patch(L, N, K)
+% update_patch updates nearest neighbors based
+% on current estimated data matrix with sparse noise removal.
 % Input:
 %   L: data matrix after removing sparse noise
 %   N: number of samples
 %   K: number of neighbors (including data itself)
 % Output:
 %   patch: indexes of neighbors, with dimension N * K
-%   no_copies: weights to compute regularizing parameter mu, by taking
-%       sum beta*||S^i||_1 out of parenthesis to be mu * ||S||_1
+%   no_copies: how many times each data point is assigned to a patch
 %   A: truncated distance matrix
-%   D: Full distance matrix
-%   d: constant to compute geodesic distance
 %
 % Author: He Lyu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

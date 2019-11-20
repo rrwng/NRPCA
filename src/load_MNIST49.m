@@ -1,14 +1,11 @@
-function [orig_data, cmap] = load_MNIST49(N)
+function [data, cmap] = load_MNIST49(N)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function load_MNIST49 serves as randomly loading MNIST 4&9 data. 
-%
-% [orig_data, cmap] = get_mnist49(N)
-%
+% This function randomly loads $N$ MNIST digits 4&9.
 % Input:
 %   N: number of samples per class.
 %
 % Output
-%   orig_data: original data matrix of dimension 2N * P.
+%   data: data matrix of dimension 2N * P.
 %   cmap: colormap(labels) for digits.
 %
 % Author: He Lyu
@@ -30,7 +27,7 @@ end
 % randomly choose N samples within each class
 perm4 = randperm(n4);
 perm9 = randperm(n9);
-orig_data = [digit_4(:,perm4(1:N))'; digit_9(:,perm9(1:N))'];
+data = [digit_4(:,perm4(1:N))'; digit_9(:,perm9(1:N))'];
 
 % colormap
 cmap = [ones(1,N), 10 * ones(1,N)];

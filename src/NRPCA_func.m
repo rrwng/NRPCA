@@ -1,16 +1,14 @@
 function L = NRPCA_func(patch, data, lambda, no_copies, niter)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The function NRPCA_func computes the denoised result 'L' of the
-% original data matrix by solving the optimization problem:
+%  NRPCA_func computes remove the sparse noise if any from the data by solving the optimization problem:
 %   S = argmin sum_{i=1}^n (lambda_i * || X^i - L^i - S^i ||_F^2) + ||C(L^i)||_* + mu * || S^i ||_1)
 %
-% L = NRPCA_func(patch, data, lambda, no_copies, niter)
 % Input:
-%   patch = (K+1) * N matrix, contains the indexes of K+1 nearest
-%       neighbors including itself as i^th row for data point x_i.
+%   patch = (K+1) * N matrix, the i'th row contains i and the indices of the K nearest
+%       neighbors of X_i
 %   X = P * N input data matrix
-%   lambda: regularizing parameter for the F-norm
-%   no_copies: frequen
+%   lambda: weight in the optimizaiton computed via the function compute_weight.m
+%   no_copies: how many times each data point is assigned to a patch
 %   niter: number of iterations
 % Output:
 %   L: denoised data matrix (sparse noise removed)

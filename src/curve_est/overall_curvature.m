@@ -1,7 +1,14 @@
 function curvature = overall_curvature(X,normalize)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function estimates the overall curvature of a dataset
 % X: nxp data matrix
 % normalize: 0 actual curvature
 %            1 normalized curvature
+% curvature: the scalar contains the estimated curvature
+% (C) Rongrong Wang, Michigan State University
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 n = size(X,1);
 if normalize ==1 
     X = X - mean(X,2);
@@ -33,7 +40,7 @@ sample_ind=randsample(adm_pairs,no_pairs); % randomly pick a subset of pairs
 %% estimate curvature
  options = optimset('Display','off','TolX',1e-16, 'TolPCG',1e-3);
  r_est = -ones(no_pairs,1);
- for i=1:no_pairs
+ for i = 1:no_pairs
      dg = Dg(row(i),col(i));
      du = D(points(row(i)),col(i));
       s = max(dg/du,1);

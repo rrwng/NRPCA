@@ -1,6 +1,6 @@
 function [D,n_steps] = dijks(A,s,t)
 %DIJK Shortest paths from nodes 's' to nodes 't' using Dijkstra algorithm.
-% D = dijk(A,s,t)
+% [D, n_steps] = dijk(A,s,t)
 %     A = n x n node-node weighted adjacency matrix of arc lengths
 %         (Note: A(i,j) = 0   => Arc (i,j) does not exist;
 %                A(i,j) = NaN => Arc (i,j) exists with 0 weight)
@@ -9,7 +9,8 @@ function [D,n_steps] = dijks(A,s,t)
 %     t = TO node indices
 %       = [] (default), paths to all nodes
 %     D = |s| x |t| matrix of shortest path distances from 's' to 't'
-%       = [D(i,j)], where D(i,j) = distance from node 'i' to node 'j' 
+%       = [D(i,j)], where D(i,j) = distance from node 'i' to node 'j'
+%      n_steps = number of lines that connect two points
 %
 %	(If A is a triangular matrix, then computationally intensive node
 %   selection step not needed since graph is acyclic (triangularity is a 
@@ -20,8 +21,7 @@ function [D,n_steps] = dijks(A,s,t)
 %   transposed and P now represents successor indices)
 %
 %  (Based on Fig. 4.6 in Ahuja, Magnanti, and Orlin, Network Flows,
-%   Prentice-Hall, 1993, p. 109.)
-
+%   Prentice-Hall, 1993, p. 109.
 % Copyright (c) 1998-2000 by Michael G. Kay
 % Matlog Version 1.3 29-Aug-2000
 % 
@@ -36,8 +36,8 @@ function [D,n_steps] = dijks(A,s,t)
 % maintain the name of the original author.
 %
 % (C) Laurens van der Maaten, Delft University of Technology
-
-
+     
+% Modified by Rongrong Wang, Michigan State Univeristy
 
 % Input Error Checking ******************************************************
 error(nargchk(1,3,nargin));
