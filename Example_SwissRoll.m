@@ -19,8 +19,8 @@ niter = 150; % maximum iterations per round
 %% Running NRPCA
 % multiple round sparse noise removing with neighbors updated
 C = run_NRPCA(noisy_data, K, num_run, niter, noise_level);
-L1 = cell2mat(C(1));
-L2 = cell2mat(C(2));
+L1 = C{1};
+L2 = C{2};
 % gaussian noise removing with neighbors updated
 
 [L_clean,lambda3] = clean_L(N, K, noisy_data, L2, P, noise_level);

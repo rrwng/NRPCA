@@ -7,20 +7,20 @@ setup
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% MNIST variables declearation
-N = 2000;   % number of samples in total
+N = 200;   % number of samples in total
 [orig_data, cmap] = load_MNIST49(N/2);
 K = 6;     % number of neighbors (including data itself)
 P = size(orig_data,2);  % original data dimension
-num_run = 5; % maximum rounds
+num_run = 2; % maximum rounds
 niter = 150; % maximum iterations per round 
 
 %% Running NRPCA multiple rounds
 C = run_NRPCA(orig_data, K, num_run, niter, 0);
-L1 = cell2mat(C(1));
-L2 = cell2mat(C(2));
-L3 = cell2mat(C(3));
-L4 = cell2mat(C(4));
-L5 = cell2mat(C(5));
+L1 = C{1};
+L2 = C{2};
+L3 = C{3};
+L4 = C{4};
+L5 = C{5};
 %% Image Denoising Results (Comparison between diffenrent rounds)
 perm = randperm(N,54);
 figure()
