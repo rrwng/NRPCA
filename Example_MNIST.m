@@ -7,11 +7,11 @@ setup
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% MNIST variables declearation
-N = 200;   % number of samples in total
+N = 2000;   % number of samples in total
 [orig_data, cmap] = load_MNIST49(N/2);
 K = 6;     % number of neighbors (including data itself)
 P = size(orig_data,2);  % original data dimension
-num_run = 2; % maximum rounds
+num_run = 5; % maximum rounds
 niter = 150; % maximum iterations per round 
 
 %% Running NRPCA multiple rounds
@@ -74,12 +74,12 @@ colormap(cmap1);caxis([0,3])
 perm = randperm(N);
 Xmax = max(mapped_data(:,1)); Xmin = min(mapped_data(:,1));
 dx = (Xmax-Xmin)/70; dy = dx; 
-for i=1:N  
+for i = 1:N  
     % rescale image, to get visualizable results
-    xmin = mapped_data(perm(i),1)-dx; xmax= mapped_data(perm(i),1)+dx;
-    ymin = mapped_data(perm(i),2)-dy; ymax= mapped_data(perm(i),2)+dy;
+    xmin = mapped_data(perm(i),1)-dx; xmax = mapped_data(perm(i),1)+dx;
+    ymin = mapped_data(perm(i),2)-dy; ymax = mapped_data(perm(i),2)+dy;
     img =  flip((reshape(orig_data(perm(i),:),28,28)));
-    if perm(i)>N/2
+    if perm(i) > N/2
         img = img+2*ones(28,28);
     end
     h = imagesc([xmin, xmax],[ymin, ymax],img);   
