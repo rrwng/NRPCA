@@ -14,7 +14,7 @@ function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level)
 % Output:
 %   clean_L: estimated clean data matrix
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('-------------------------------\n')

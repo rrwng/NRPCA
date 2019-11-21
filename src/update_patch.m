@@ -11,14 +11,13 @@ function [patch, no_copies, A] = update_patch(L, N, K)
 %   no_copies: how many times each data point is assigned to a patch
 %   A: truncated distance matrix
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Updating local patches...\n')
 
 % update distance matrix
-[A,D] = distance_matrix(L, K-1);
-d = mean(max(A,[],2));
+[A,~] = distance_matrix(L, K-1);
 patch = zeros(N, K);
 
 % update neighbors

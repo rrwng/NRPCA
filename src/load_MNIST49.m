@@ -8,7 +8,7 @@ function [data, cmap] = load_MNIST49(N)
 %   data: data matrix of dimension 2N * P.
 %   cmap: colormap(labels) for digits.
 %
-% Author: He Lyu
+% (C) Ningyu Sha, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Loading MNIST data...\n')

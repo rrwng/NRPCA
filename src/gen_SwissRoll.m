@@ -15,7 +15,7 @@ function [clean_data, noisy_data, cmap] = gen_SwissRoll(N, P, gauss_noise_level,
 %   noisy_data: noisy data matrix of dimension N * P.
 %   cmap: colormap(labels) for swiss roll.
 %
-% (C): He Lyu, Michigan State University
+% (C) Ningyu Sha, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Generating Swiss Roll data...\n')

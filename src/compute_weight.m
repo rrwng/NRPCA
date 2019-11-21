@@ -9,7 +9,7 @@ function lambda = compute_weight(X,curv, patch, A, noise_level)
 % Output:
 %   lambda: estimated weights
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %fprintf('Updating parameters lambda...\n')

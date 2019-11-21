@@ -8,7 +8,7 @@ function C = run_NRPCA(X, K, num_run, niter, gauss_noise_level)
 % Output:
 %   C: a cell containing the denoised data after every iteration
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %   different constants chosen for mnist and swiss roll
@@ -22,11 +22,10 @@ for i = 1:num_run
     fprintf('------------------------------\n')
     fprintf('Starting round #%d of NRPCA...\n',i);
     [patch, no_copies, A] = update_patch(L_temp, N, K);
-    %curv = curvature(L_temp);
     lambda = compute_weight(X ,curv, patch, A, gauss_noise_level);
     L_temp = NRPCA_func(patch, X', lambda, no_copies, niter);
     L = [L',L_temp']';
 end
-
+% store the resulting Ls in a cell 
 C = mat2cell(L,repmat(N,1,num_run));
 end

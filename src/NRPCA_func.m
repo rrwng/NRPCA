@@ -13,7 +13,7 @@ function L = NRPCA_func(patch, data, lambda, no_copies, niter)
 % Output:
 %   L: denoised data matrix (sparse noise removed)
 %
-% Author: Ningyu Sha
+% (C) Rongrong Wang, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Start solving minimization problem...\n')

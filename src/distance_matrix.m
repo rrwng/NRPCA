@@ -11,7 +11,7 @@ function [A, D] = distance_matrix(data, K)
 %   A: truncated distance matrix, keeping only (k+1) smallest distances in each row (including itself)
 %   D: full pairwise distance matrix, with dimension N * N
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 N = size(data, 1);
