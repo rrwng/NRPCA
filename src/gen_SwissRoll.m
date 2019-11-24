@@ -1,21 +1,21 @@
-function [clean_data, orig_data, cmap] = gen_SwissRoll(N, P, gauss_noise_level, sparse_noise_level)
+function [clean_data, noisy_data, cmap] = gen_SwissRoll(N, P, gauss_noise_level, sparse_noise_level)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function load_SwissRoll randomly generates high dimensional swiss roll data. 
+% This function generates high dimensional swiss roll data.
 %
 % [orig_data, cmap] = load_SwissRoll(N, P, gauss_noise_level, sparse_noise_level)
 %
 % Input:
-%   N: number of samples in total.
-%   P: dimension of swiss roll data
+%   N: number of samples
+%   P: dimension of the high-dimensional Swiss roll data
 %   gauss_noise_level: Gaussian noise level
 %   sparse_noise_level: sparse noise level
 %
 % Output
 %   clean_data: clean data matrix
-%   orig_data: original data matrix of dimension N * P.
+%   noisy_data: noisy data matrix of dimension N * P.
 %   cmap: colormap(labels) for swiss roll.
 %
-% Author: He Lyu
+% (C) Ningyu Sha, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('Generating Swiss Roll data...\n')
@@ -48,6 +48,6 @@ end
 gaussian_noise = normrnd(0, gauss_noise_level, [N, P]);
 noise = sparse_noise + gaussian_noise;
 
-orig_data = clean_data + noise;
+noisy_data = clean_data + noise;
 
 end    

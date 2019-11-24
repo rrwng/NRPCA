@@ -16,11 +16,11 @@ niter = 150; % maximum iterations per round
 
 %% Running NRPCA multiple rounds
 C = run_NRPCA(orig_data, K, num_run, niter, 0);
-L1 = cell2mat(C(1));
-L2 = cell2mat(C(2));
-L3 = cell2mat(C(3));
-L4 = cell2mat(C(4));
-L5 = cell2mat(C(5));
+L1 = C{1};
+L2 = C{2};
+L3 = C{3};
+L4 = C{4};
+L5 = C{5};
 %% Image Denoising Results (Comparison between diffenrent rounds)
 perm = randperm(N,54);
 figure()
@@ -74,12 +74,12 @@ colormap(cmap1);caxis([0,3])
 perm = randperm(N);
 Xmax = max(mapped_data(:,1)); Xmin = min(mapped_data(:,1));
 dx = (Xmax-Xmin)/70; dy = dx; 
-for i=1:N  
+for i = 1:N  
     % rescale image, to get visualizable results
-    xmin = mapped_data(perm(i),1)-dx; xmax= mapped_data(perm(i),1)+dx;
-    ymin = mapped_data(perm(i),2)-dy; ymax= mapped_data(perm(i),2)+dy;
+    xmin = mapped_data(perm(i),1)-dx; xmax = mapped_data(perm(i),1)+dx;
+    ymin = mapped_data(perm(i),2)-dy; ymax = mapped_data(perm(i),2)+dy;
     img =  flip((reshape(orig_data(perm(i),:),28,28)));
-    if perm(i)>N/2
+    if perm(i) > N/2
         img = img+2*ones(28,28);
     end
     h = imagesc([xmin, xmax],[ymin, ymax],img);   

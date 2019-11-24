@@ -1,6 +1,6 @@
 function lambda = optimal_hard_thresh(P,K)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function optimal_hard_thresh computes the optimal hard thresholds for
+% optimal_hard_thresh computes the optimal hard thresholds for
 % singular values. Following eq.(10)&(11) in reference below.
 %   Reference: The Optimal Hard Threshhold for Singular Values is 4/sqrt(3)
 %   Authors: Matan Gavish, David L. Donoho

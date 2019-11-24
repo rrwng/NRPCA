@@ -12,7 +12,7 @@ P = 3;     % dimension of swiss roll
 noise_level = 0.5;    % noise level
 sparse_noise_level = 2;    % sparse noise level
 [clean_data, noisy_data, cmap] = gen_SwissRoll(N, P, noise_level, sparse_noise_level);
-K = 21;     % number of neighbors (including data itself)
+K = 20;     % number of neighbors (including data itself)
 num_run = 2; % maximum rounds (T)
 niter = 150; % maximum iterations per round 
 
@@ -44,7 +44,7 @@ subplot(2,3,6), scatter3(clean_data(:,1), clean_data(:,2), clean_data(:,3), 10, 
 title('Clean data:$X$','Interpreter', 'latex','Fontsize',20);
 
 %% Embedding via LLE and Laplacian Eigenmap
-M=10;
+M = 15;
 mapped_clean_lle = compute_mapping(clean_data(:,1:3),'LLE',2,M);
 mapped_L1_lle = compute_mapping(L1(:,1:3),'LLE',2,M);
 mapped_L2_lle = compute_mapping(L2(:,1:3),'LLE',2,M);

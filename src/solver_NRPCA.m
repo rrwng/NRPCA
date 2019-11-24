@@ -10,7 +10,7 @@ classdef solver_NRPCA
 %   S^i: P * K, local sparse noise matrix
 %   S : P * N, N is number of data set, sparse noise matrix
 %
-% Author: Ningyu Sha
+% (C) Ningyu Sha, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 properties

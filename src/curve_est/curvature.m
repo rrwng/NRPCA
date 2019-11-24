@@ -1,10 +1,16 @@
 function curvature = curvature(X)
-% estimate pointwise curvature
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This function estimates the pointwise curvature for a dataset (the data cannot be too sparse)
+% Input:
+%      X: N x P data matrix
+% Output
+%     curvature: N x 1 matrix containing the estimated curvature at each point.
+% (C) Rongrong Wang, Michigan State University
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 N = size(X,1);
-%d = intrinsic_dim(X,'GMST');
-%[A,D]=distance_matrix(X,round(min(3*2^(d),N*.1))); %compute the adjacency and distance matrix
-[A,D]=distance_matrix(X,20);
-S=[];
+[A,D] = distance_matrix(X,20);
+S = [];
 curvature = zeros(N,1);
 while size(S,1) < N
     % estimating geodesic distance using dijkstra's algorithm
@@ -49,7 +55,7 @@ if length(adm_pairs(:)) < no_pairs
     no_pairs= length(adm_pairs(:));
     [row, col] = ind2sub(size(Dg),adm_pairs);
 else
-sample_ind=randsample(adm_pairs,no_pairs); % randomly pick a subset of pairs
+sample_ind = randsample(adm_pairs,no_pairs); % randomly pick a subset of pairs
 [row, col] = ind2sub(size(Dg),sample_ind);
 end
 

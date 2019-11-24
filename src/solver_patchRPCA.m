@@ -12,7 +12,7 @@ classdef solver_patchRPCA
 %   S : P * N, estimates sparse noise
 %   S^i: P * K, local patch of sparse noise
 %
-% Author: Ningyu Sha
+% (C) Ningyu Sha, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 properties

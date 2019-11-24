@@ -1,18 +1,17 @@
 function [A, D] = distance_matrix(data, K)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function distance_matrix computes the full and truncated pairwise
-% Euclidean distances between data matrix columns.
+% This function computes the full and truncated pairwise
+% Euclidean distances between data points in columns.
 %   
 % [A, D]=distance_matrix(data,K)
 % Input:
 %   data: input data matrix, with dimension P * N
 %   K: number of neighbors (not including the point itself)
 % Output:
-%   A: truncated distance matrix, keeping only (k+1) smallest distances for
-%      a given row (including itself)
+%   A: truncated distance matrix, keeping only (k+1) smallest distances in each row (including itself)
 %   D: full pairwise distance matrix, with dimension N * N
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 N = size(data, 1);

@@ -1,6 +1,6 @@
 function L_patch = patch_RPCA(X, K, noise_level)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function L_patch estimates the clean data matrix as L_patch via
+% This function estimates the clean data matrix as L_patch via
 % patch-wise robust PCA.
 %
 % Input:
@@ -10,7 +10,7 @@ function L_patch = patch_RPCA(X, K, noise_level)
 % Output:
 %   L_patch: estimation of clean data matrix
 %
-% Author: Ningyu Sha
+% (C) Ningyu Sha, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('----------------------------------\n')

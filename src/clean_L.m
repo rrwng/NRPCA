@@ -1,23 +1,20 @@
 function [clean_L,lambda] = clean_L(N, K, X, L2, P, noise_level)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function denoised_L computes the final estimation clean data matrix,
-% by removing gaussian noise. Following eq.(13)&(15):
-%   L = (sum_{i=1}^n lambda_i * P^i * P^i')^{-1}*(sum_1^n lambda_i * P^i' * L^i)
-%
-% clean_L = clean_data(N, K, orig_data, L2, P, lambda)
+% This function removes Gaussian noise from data with the given noise level and a set of estimated tangent spaces
+%  Following eq.(13)&(15) in ``Manifold denoising by Nonlinear Robust Principal Component Analysis"
 % Input:
 %   N: number of data points
-%   K: number of neighbors (including data itself)
-%   patch: indexes of neighborhoods matrix, with dimension N * (K+1)
-%   orig_data: original data matrix
-%   L2: estimated data matrix obtained by NRPCA with T=2
-%   P: original dimensionality of data
+%   K: number of neighbors (including the center point)
+%   patch: indexes of the neighborhood matrix, with dimension N * (K+1)
+%   orig_data: the noisy data matrix
+%   L2: denoised data matrix after the sparse noise was removed via the function run_NRPCA
+%   P: dimensionality of the data
 %   lambda: regularizing parameter before F-norm in objective function
 %   no_copies: a vector that counts the number of local patches the i-th point belongs to  
 % Output:
-%   clean_L: final estimation \hat X of clean data matrix
+%   clean_L: estimated clean data matrix
 %
-% Author: He Lyu
+% (C) He Lyu, Michigan State University
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf('-------------------------------\n')

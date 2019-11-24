@@ -10,7 +10,7 @@ fprintf('10 dimmensional unit sphere: true curvature 1, estimated %d \n', overal
 S = randn(1000,5);
 S = 3*normc(S')';
 fprintf('5 dimmensional sphere with radius 3: true curvature 1/3, estimated %d \n', overall_curvature(S,0))
-%% Example: plane
+%% Example: line
 t = .001:.001:1;
 data = [t',2*t'];
 fprintf('plane: true curvature 0, estimated %d \n', overall_curvature(data,0))
