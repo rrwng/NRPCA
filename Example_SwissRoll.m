@@ -44,7 +44,7 @@ subplot(2,3,6), scatter3(clean_data(:,1), clean_data(:,2), clean_data(:,3), 10, 
 title('Clean data:$X$','Interpreter', 'latex','Fontsize',20);
 
 %% Embedding via LLE and Laplacian Eigenmap
-M = 15;
+M = 10;
 mapped_clean_lle = compute_mapping(clean_data(:,1:3),'LLE',2,M);
 mapped_L1_lle = compute_mapping(L1(:,1:3),'LLE',2,M);
 mapped_L2_lle = compute_mapping(L2(:,1:3),'LLE',2,M);
