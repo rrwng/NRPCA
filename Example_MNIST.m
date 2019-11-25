@@ -29,7 +29,7 @@ subplot(1,3,2), display_network(L1(perm,:)');title('Denoised images','fontsize',
 subplot(1,3,3), display_network(L2(perm,:)');title('Denoised images with neighbor updated','fontsize',15);
 
 %% Dimension Reduction using estimated clean data matrix via LLE, Isomap, Laplacian Eigenmap
-M=15;
+M = 15;
 % LLE
 mapped_L1_lle = compute_mapping(L1,'LLE',2,M);
 mapped_L2_lle = compute_mapping(L2,'LLE',2,M);
