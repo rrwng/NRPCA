@@ -9,7 +9,7 @@ setup
 %% MNIST variables declearation
 N = 2000;   % number of samples in total
 [orig_data, cmap] = load_MNIST49(N/2);
-K = 6;     % number of neighbors (including data itself)
+K = 11;     % number of neighbors (including data itself)
 P = size(orig_data,2);  % original data dimension
 num_run = 5; % maximum rounds
 niter = 150; % maximum iterations per round 
@@ -29,7 +29,7 @@ subplot(1,3,2), display_network(L1(perm,:)');title('Denoised images','fontsize',
 subplot(1,3,3), display_network(L2(perm,:)');title('Denoised images with neighbor updated','fontsize',15);
 
 %% Dimension Reduction using estimated clean data matrix via LLE, Isomap, Laplacian Eigenmap
-M=10;
+M=15;
 % LLE
 mapped_L1_lle = compute_mapping(L1,'LLE',2,M);
 mapped_L2_lle = compute_mapping(L2,'LLE',2,M);
@@ -67,14 +67,14 @@ subplot(1,3,3), scatter(mapped_L2_iso(perm,1), mapped_L2_iso(perm,2), 10, cmap(p
 subplot(1,3,1), scatter(mapped_orig_iso(perm,1), mapped_orig_iso(perm,2), 10, cmap(perm)), title('Noisy data, Isomap');xlabel('\fontsize{14}Isomap1');ylabel('\fontsize{14}Isomap2');
 
 %% Ploting Embedding results with digital images
-mapped_data = mapped_orig_iso;
+mapped_data = mapped_L2_iso;
 figure;scatter(mapped_data(:,1),mapped_data(:,2),10,cmap); hold on
 cmap1 = [autumn(N/2+1); white(N/2-1); gray(N/2+1)];
 colormap(cmap1);caxis([0,3])
 perm = randperm(N);
 Xmax = max(mapped_data(:,1)); Xmin = min(mapped_data(:,1));
-dx = (Xmax-Xmin)/70; dy = dx; 
-for i = 1:N  
+dx = (Xmax-Xmin) / 70; dy = dx; 
+for i = 1 : N  
     % rescale image, to get visualizable results
     xmin = mapped_data(perm(i),1)-dx; xmax = mapped_data(perm(i),1)+dx;
     ymin = mapped_data(perm(i),2)-dy; ymax = mapped_data(perm(i),2)+dy;
