@@ -1,6 +1,8 @@
 ## Manifold Denoising by Nolinear Robust Principal Analysis (NRPCA)
 
-This is the repository for code related to 'Manifold Denoising by Nolinear Robust Principal Analysis'. The paper is available on the Arxiv at: https://arxiv.org/abs/1911.03831
+This is the repository for code related to 'Manifold Denoising by Nolinear Robust Principal Analysis'. The paper is available on the Arxiv at: https://arxiv.org/abs/1911.03831.
+
+A Python implementation can be found at https://github.com/lyuhe95/NRPCA_python.
 
 ***
 
